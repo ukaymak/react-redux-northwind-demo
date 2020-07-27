@@ -4,7 +4,7 @@ import App from './components/root/App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
-import configureStore from "./redux/reducers/changeCategoryReducer"
+import configureStore from "./redux/reducers/configureStore"
 
 const store = configureStore();
 

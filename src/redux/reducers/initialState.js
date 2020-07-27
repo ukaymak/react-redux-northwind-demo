@@ -1,3 +1,4 @@
 export default {
-  currentCategory: {},
-};
+  currentCategory: {categoryName:"Hello World"},
+}
+
