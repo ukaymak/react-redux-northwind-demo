@@ -1,11 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class CategoryList extends Component {
-    render() {
-        return (
-            <div>
-                <h3>Category</h3>
-            </div>
-        )
-    }
+class CategoryList extends Component {
+  render() {
+    return (
+      <div>
+        <h3>Category</h3>
+        <h5>Selamlar : {this.props.currentCategory.categoryName}</h5>
+      </div>
+    );
+  }
 }
+
+function mapStateToProps(state) {
+  return {
+    currentCategory: state.changeCategoryReducer,
+  };
+}
+
+export default connect(mapStateToProps)(CategoryList);
