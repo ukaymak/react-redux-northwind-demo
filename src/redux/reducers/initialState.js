@@ -1,5 +1,5 @@
 export default {
-  currentCategory: {categoryName:"Hello World"},
+  currentCategory: {},
   categories:[]
 }
 
