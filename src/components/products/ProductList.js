@@ -17,8 +17,9 @@ class ProductList extends Component {
           <Badge color="success">
             {this.props.currentCategory.categoryName}
           </Badge>
+        </h3>
 
-          <Table striped>
+        <Table striped>
           <thead>
             <tr>
               <th>#</th>
@@ -29,7 +30,7 @@ class ProductList extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.products.map(product => (
+            {this.props.products.map((product) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>{product.productName}</td>
@@ -40,8 +41,6 @@ class ProductList extends Component {
             ))}
           </tbody>
         </Table>
-        </h3>
-
       </div>
     );
   }
