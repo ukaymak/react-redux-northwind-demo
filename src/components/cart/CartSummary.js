@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as cartActions from "../../redux/actions/cartActions";
-
-
-
 import {
   UncontrolledDropdown,
   DropdownToggle,
@@ -14,8 +11,19 @@ import {
   NavItem,
   Badge,
 } from "reactstrap";
+import {Link} from "react-router-dom";
+import alertify from "alertifyjs";
+
+
 
 class CartSummary extends Component {
+
+  removeFromCart(product) {
+    this.props.actions.removeFromCart(product);
+    alertify.error(product.productName + " product has been removed ");
+
+  }
+
   renderEmpty() {
     return (
       <NavItem>
@@ -41,13 +49,13 @@ class CartSummary extends Component {
               <Badge color="success" style={style}>
                 {cartItem.quantity}
               </Badge>
-              <Badge color="danger" style={style} onClick={()=>this.props.actions.removeFromCart(cartItem.product)}>
+              <Badge color="danger" style={style} onClick={()=>this.removeFromCart(cartItem.product)}>
                 X
               </Badge>
             </DropdownItem>
           ))}
           <DropdownItem divider />
-          <DropdownItem>Sepete Git</DropdownItem>
+          <DropdownItem><Link to={"/cart"}>Sepete Git</Link></DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );
